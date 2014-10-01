@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block pagetitle %}About Analotics{% endblock %}
+{% block body %}
+<div class="container">
+  <h1>Find a place to park</h1>
+  <hr />
+
+  <div class="row">
+    <table class="table text-center" style="font-size: 38px;">
+        <thead>
+            <td>Lot Name</td>
+            <td>Free Spaces</td>
+            <td>Utilization</td>
+        </thead>
+        <tbody>
+            {% for lot in lots %}
+            <tr>
+                <td>{{ lot.name }}</td>
+                <td><span class="font-semibold">33</span>/<span class="font-thin">{{ lot.spaces }}</span></td>
+                <td>5.71%</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

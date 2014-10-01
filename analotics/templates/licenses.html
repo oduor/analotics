@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block pagetitle %}About Analotics{% endblock %}
+{% block body %}
+<div class="container">
+  <h1>Licenses</h1>
+  <hr />
+
+  <div class="row">
+      <ul style="font-size: 32px;">
+        {% for license in licenses %}
+            <li>{{ license.plate }}</li>
+        {% endfor %}
+      </ul>
+  </div>
+</div>
+{% endblock %}

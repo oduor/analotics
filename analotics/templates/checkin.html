@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="container">
+    <div class="row font-thin">
+        <div class="col-lg-4 col-lg-offset-4 font-thin" style="font-size: 1.5em;">
+            <h1>Check In</h1>
+
+            <form class="form-horizontal" action="{% url 'checkin' %}" method="post" enctype="multipart/form-data">
+            <fieldset>
+
+            {% csrf_token %}
+            <div class="control-group">
+                <label for="lot" class="control-label" style="margin:15px"></label>
+                <div class="controls">
+                    <select name="lot" id="lot" class="form-control">
+                        <option value="">Select Parking Lot</option>
+                        {% for lot in lots %}
+                            <option value="{{lot}}">{{lot}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+
+            <!-- File Button --> 
+            <div class="control-group">
+            <label class="control-label" for="licensefile">License Picture</label>
+            <div class="controls">
+                <input id="licensefile" name="licensefile" class="input-file" type="file">
+            </div>
+            </div>
+
+            <br />
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+            </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
